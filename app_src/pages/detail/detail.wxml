@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="container">
+  <view bindtap="bindViewTap" class="usermotto">
+    <text class="user-motto">Hit me {{count}} times more to go back</text>
+  </view>
+</view>
