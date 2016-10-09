@@ -1,9 +1,10 @@
 <!--index.wxml-->
 <view class="container">
-  <view bindtap="bindViewTap" class="usermotto">
-    <text class="user-motto">You have hit me for {{count}} times</text>
-  </view>
-  <view bindtap="bindViewTap2" class="usermotto">
-    <text class="user-motto">visit detail</text>
-  </view>
+  	<view bindtap="bindViewTap" class="usermotto">
+    	<text class="user-motto">You have hit me for {{count}} times</text>
+  	</view>
+  	<view bindtap="bindViewTap2" class="usermotto">
+    	<text class="user-motto">visit detail</text>
+  	</view>
+	<canvas style="width: 300px; height: 200px;" canvas-id="firstCanvas"></canvas>
 </view>

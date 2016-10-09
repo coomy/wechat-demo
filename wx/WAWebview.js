@@ -1,3 +1,7 @@
+function __is_tbs__() { /*TODO*/
+    return true
+}
+
 ! function(e) {
     if (!e.WeixinJSBridge) {
         if (e.navigator && e.navigator.userAgent) {
@@ -2153,7 +2157,9 @@ function(e) {
                     WeixinJSBridge.publish("canvasInsert", {
                         canvasId: e.canvasId,
                         canvasNumber: e._canvasNumber
-                    }), e._ready(), document.addEventListener("pageReRender", e._pageReRenderCallback.bind(e))
+                    }), __is_tbs__()?WeixinJSBridge.subscribe("canvas" + e._canvasNumber + "actionsChanged", function(t) {
+                        e.actions = t, e.actionsChanged(t)
+                    }):!0, e._ready(), document.addEventListener("pageReRender", e._pageReRenderCallback.bind(e))
                 })) : (WeixinJSBridge.publish("canvasInsert", {
                     canvasId: e.canvasId,
                     canvasNumber: e._canvasNumber
@@ -2171,7 +2177,7 @@ function(e) {
                 })
             },
             actionsChanged: function(n, i) {
-                if (!this._isMobile() && n) {
+                if ((!this._isMobile()||__is_tbs__()/*TODO*/) && n) {
                     var r = this.$.canvas,
                         o = r.getContext("2d"),
                         a = this;

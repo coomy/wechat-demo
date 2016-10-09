@@ -29,6 +29,7 @@ function WxAppEngine() {
     this.currentPage = null;
     this.nextId = 0;
     this.dom = document.getElementById("pageContainer");
+    this.canvasMap = []; // 保存canvasID和wvid的对应值
     this.init();
 };
 
@@ -75,6 +76,15 @@ WxAppEngine.prototype = {
         appRouteEvent.webviewId = wvId;
         appRouteEvent.query = {};
         WeixinJSBridge.subscribeHandler("onAppRoute", appRouteEvent);
+    },
+    insertCanvas: function(params) {
+        this.canvasMap[params.canvasId] = params.wvId;
+    },
+    getCanvasWvId: function(canvasId) {
+        return this.canvasMap[canvasId];
+    },
+    drawCanvas: function(params) {
+        // TODO
     },
     /*
      if (!ignoreExist && this.currentPage != null) {

@@ -44,6 +44,10 @@ kI=kI.toString()
 _(cH,kI)
 _(aG,cH)
 _(uB,aG)
+var yJ=_n('canvas')
+yJ.attr.canvasId="firstCanvas"
+yJ.attr.style="width: 300px; height: 200px;"
+_(uB,yJ)
 _(r,uB)
 return r
 }
