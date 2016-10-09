@@ -1,10 +1,18 @@
 <!--index.wxml-->
 <view class="container">
-  	<view bindtap="bindViewTap" class="usermotto">
+  	<view bindtap="bindViewTap" class="user-text">
+  		<icon type="success" size="30"/>
     	<text class="user-motto">You have hit me for {{count}} times</text>
   	</view>
-  	<view bindtap="bindViewTap2" class="usermotto">
-    	<text class="user-motto">visit detail</text>
-  	</view>
-	<canvas style="width: 300px; height: 200px;" canvas-id="firstCanvas"></canvas>
+  	<button type="primary" bindtap="bindViewTap2"> visit detail </button>
+
+	<canvas style="width: 300px; height: 200px; margin:10px" canvas-id="firstCanvas"></canvas>
+
+	<view class="section tc">
+	  <video src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" binderror="videoErrorCallback"></video>
+	</view>
+
+    <view class="section section_gap" style="text-align: left;">
+      <audio src="{{current.src}}" poster="{{current.poster}}" name="{{current.name}}" author="{{current.author}}" action="{{audioAction}}" bindplay="audioPlayed" bindtimeupdate="audioTimeUpdated" controls></audio>
+    </view>
 </view>

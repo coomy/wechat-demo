@@ -22,7 +22,7 @@ var uB=_n('view')
 uB.attr.class="container"
 var hC=_n('view')
 hC.attr.bindtap="bindViewTap"
-hC.attr.class="usermotto"
+hC.attr.class="user-text"
 var aD=_n('text')
 aD.attr.class="user-motto"
 var oE="Hit me "
@@ -34,6 +34,63 @@ oE=oE.toString()
 _(aD,oE)
 _(hC,aD)
 _(uB,hC)
+var aG=_n('progress')
+aG.attr.percent="20"
+aG.attr.showInfo=true
+_(uB,aG)
+var cH=_n('view')
+cH.attr.class="section"
+var kI=_n('input')
+kI.attr.placeholder="输入框示例"
+_(cH,kI)
+_(uB,cH)
+var yJ=_n('view')
+yJ.attr.class="section section_gap"
+var sK=_n('text')
+sK.attr.class="section__title"
+var bL="显示当前value"
+bL=bL.toString()
+_(sK,bL)
+_(yJ,sK)
+var lM=_n('view')
+lM.attr.class="body-view"
+var cN=_n('slider')
+cN.attr.bindchange="slider3change"
+cN.attr.showValue=true
+_(lM,cN)
+_(yJ,lM)
+_(uB,yJ)
+var sO=_n('view')
+sO.attr.class="body-view"
+var bP=_n('switch')
+bP.attr.bindchange="switchChange"
+bP.attr.checked=true
+_(sO,bP)
+_(uB,sO)
+var hQ=_n('view')
+hQ.attr.class="body-view"
+var uR=_n('toast')
+uR.attr.bindchange="toastChange"
+var aS=_s(s,e,'toastHide')
+
+uR.attr.hidden=typeof(aS)=='undefined'?'':aS
+var hT="\n    默认Toast\n    "
+hT=hT.toString()
+_(uR,hT)
+_(hQ,uR)
+var eU=_n('button')
+eU.attr.bindtap="toastTap"
+eU.attr.type="default"
+var rV="点击弹出默认Toast"
+rV=rV.toString()
+_(eU,rV)
+_(hQ,eU)
+_(uB,hQ)
+var eW=_n('image')
+eW.attr.mode="scaleToFill"
+eW.attr.src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+eW.attr.style="width: 300px; height: 200px; margin:20px; background-color: #eeeeee;"
+_(uB,eW)
 _(r,uB)
 return r
 }

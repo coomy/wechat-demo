@@ -6,6 +6,7 @@ define("pages/detail/detail.js", function(require, module){var window={Math:Math
     Page({
         data: {
             count: toHit,
+            toastHide: true
         },
         //事件处理函数
         bindViewTap: function() {
@@ -26,6 +27,19 @@ define("pages/detail/detail.js", function(require, module){var window={Math:Math
             toHit = 10;
             this.setData({
                 count: toHit
+            })
+        },
+        switchChange: function(e) {
+            console.log('switch 发生 change 事件，携带值为', e.detail.value)
+        },
+        toastTap: function() {
+            this.setData({
+                toastHide: false
+            })
+        },
+        toastChange: function() {
+            this.setData({
+                toastHide: true
             })
         }
     })

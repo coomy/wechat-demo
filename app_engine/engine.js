@@ -4,6 +4,7 @@ WxAppPage = function (path, wvId, from, parent) {
     this.previousPage = from;
     this.domEle = document.createElement('iframe');
     this.domEle.src = path.indexOf(".html") >= 0 ? path : path + ".html";
+    this.domEle.style = "width:100%; height:600px"
     this.domEle.name = "webview" + wvId;
     //var wxml = "app_src/" + this.domEle.src.replace(".html", ".wxml");
     var webviewID = wvId;

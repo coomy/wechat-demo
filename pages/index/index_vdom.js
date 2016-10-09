@@ -22,32 +22,68 @@ var uB=_n('view')
 uB.attr.class="container"
 var hC=_n('view')
 hC.attr.bindtap="bindViewTap"
-hC.attr.class="usermotto"
-var aD=_n('text')
-aD.attr.class="user-motto"
-var oE="You have hit me for "
-var jF=_s(s,e,'count')
-
-oE+=typeof(jF)=='undefined'?'':jF
-oE+=" times"
-oE=oE.toString()
-_(aD,oE)
+hC.attr.class="user-text"
+var aD=_n('icon')
+aD.attr.size="30"
+aD.attr.type="success"
 _(hC,aD)
+var oE=_n('text')
+oE.attr.class="user-motto"
+var jF="You have hit me for "
+var aG=_s(s,e,'count')
+
+jF+=typeof(aG)=='undefined'?'':aG
+jF+=" times"
+jF=jF.toString()
+_(oE,jF)
+_(hC,oE)
 _(uB,hC)
-var aG=_n('view')
-aG.attr.bindtap="bindViewTap2"
-aG.attr.class="usermotto"
-var cH=_n('text')
-cH.attr.class="user-motto"
-var kI="visit detail"
+var cH=_n('button')
+cH.attr.bindtap="bindViewTap2"
+cH.attr.type="primary"
+var kI=" visit detail "
 kI=kI.toString()
 _(cH,kI)
-_(aG,cH)
-_(uB,aG)
+_(uB,cH)
 var yJ=_n('canvas')
 yJ.attr.canvasId="firstCanvas"
-yJ.attr.style="width: 300px; height: 200px;"
+yJ.attr.style="width: 300px; height: 200px; margin:10px"
 _(uB,yJ)
+var sK=_n('view')
+sK.attr.class="section tc"
+var bL=_n('video')
+bL.attr.binderror="videoErrorCallback"
+bL.attr.src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"
+_(sK,bL)
+_(uB,sK)
+var lM=_n('view')
+lM.attr.class="section section_gap"
+lM.attr.style="text-align: left;"
+var cN=_n('audio')
+var sO=_s(s,e,'audioAction')
+
+cN.attr.action=typeof(sO)=='undefined'?'':sO
+var hQ=_s(s,e,'current')
+
+var bP=hQ?hQ.author:undefined
+cN.attr.author=typeof(bP)=='undefined'?'':bP
+cN.attr.bindplay="audioPlayed"
+cN.attr.bindtimeupdate="audioTimeUpdated"
+cN.attr.controls=true
+var aS=_s(s,e,'current')
+
+var uR=aS?aS.name:undefined
+cN.attr.name=typeof(uR)=='undefined'?'':uR
+var eU=_s(s,e,'current')
+
+var hT=eU?eU.poster:undefined
+cN.attr.poster=typeof(hT)=='undefined'?'':hT
+var eW=_s(s,e,'current')
+
+var rV=eW?eW.src:undefined
+cN.attr.src=typeof(rV)=='undefined'?'':rV
+_(lM,cN)
+_(uB,lM)
 _(r,uB)
 return r
 }
