@@ -1,4 +1,4 @@
-function __is_tbs__() { /*TODO*/
+function __is_tbs__() { /* TODO */
     return true
 }
 
@@ -2133,7 +2133,7 @@ function(e) {
                 }
             },
             _updatePosition: function() {
-                this.$.canvas.width = this._box.width, this.$.canvas.height = this._box.height, this._isMobile() ? WeixinJSBridge.invoke("updateCanvas", {
+                this.$.canvas.width = this._box.width, this.$.canvas.height = this._box.height, this._isMobile()&&!__is_tbs__() ? WeixinJSBridge.invoke("updateCanvas", {
                     canvasId: this._canvasNumber,
                     position: this._box
                 }, function(e) {}) : this.actionsChanged(this.actions)
@@ -2512,7 +2512,7 @@ function(e) {
         backgroundRepeatChanged: function(e, t) {
             this._disableSizePositionRepeat || (this.$.div.style.backgroundRepeat = e)
         }
-    }), /wechatdevtools/.test(window.navigator.userAgent.toLowerCase()) && window.exparser.registerElement({
+    }), (/wechatdevtools/.test(window.navigator.userAgent.toLowerCase())||__is_tbs__()) && window.exparser.registerElement({
         is: "wx-input",
         template: '\n    <div id="wrapper" disabled$="{{disabled}}">\n      <p id="placeholder" class$="{{_getPlaceholderClass(placeholderClass)}}" style$="{{placeholderStyle}}" parse-text-content>{{placeholder}}</p>\n      <input id="input" type$="{{_getType(type,password)}}" maxlength$="{{maxlength}}" value$="{{showValue}}" disabled$="{{disabled}}" >\n    </div>\n    ',
         behaviors: ["wx-base", "wx-data-component", "wx-input-base"],
@@ -2590,7 +2590,7 @@ function(e) {
                 value: t
             }, !0), this._formGetDataCallback()
         }
-    }), /wechatdevtools/.test(window.navigator.userAgent.toLowerCase()) || window.exparser.registerElement({
+    }), /wechatdevtools/.test(window.navigator.userAgent.toLowerCase()) || __is_tbs__() || window.exparser.registerElement({
         is: "wx-input",
         template: '\n    <div id="wrapper" disabled$="{{disabled}}">\n      <p id="placeholder" class$="{{_getPlaceholderClass(placeholderClass)}}" style$="{{placeholderStyle}}" parse-text-content>{{placeholder}}</p>\n      <p id="input" parse-text-content keep-white-space>{{showValue}}</p>\n    </div>\n  ',
         behaviors: ["wx-base", "wx-data-component", "wx-input-base"],
